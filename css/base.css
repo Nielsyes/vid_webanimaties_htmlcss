@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    padding: 10% 0%;
+}
+
+body {
+    height: 100%;
+    background: radial-gradient(#AEA7A5 50%, #918270 100%);
+}
+
+.block__poster__container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+@media(min-width: 1366px) {
+    html {
+        padding: 5% 0%;
+    }
+}
+
