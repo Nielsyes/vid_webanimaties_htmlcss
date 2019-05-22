@@ -65,17 +65,49 @@ function setDismantleClasses(){
 
 setDismantleClasses();
 
-function setAndRemoveClass(clickElement, animationClass, undoAnimationClass){
-    let element = document.getElementById(clickElement);
+
+/*nog kijken voor verbeteringen als er tijd is*/
+function setAndRemoveClassPath(animationClass, undoAnimationClass, letter){
     let clicked = false;
-    element.onclick = function() {
+
+    let clickElement = document.getElementById(letter);
+    let letterElement = document.getElementById(letter);
+    let letterPaths = letterElement.getElementsByTagName("path");
+
+    console.log(letterPaths);
+
+
+    clickElement.onclick = function() {
         if (clicked == false) {
-            element.classList.add(animationClass);
+            letterPaths[1].classList.remove(undoAnimationClass);
+            letterPaths[1].classList.add(animationClass);
+
+            clicked = true;
         }
         else {
-            element.classList.add(undoAnimationClass);
+            letterPaths[1].classList.remove(animationClass);
+            letterPaths[1].classList.add(undoAnimationClass);
+
+            clicked = false;
         }
     }
 }
 
-setAndRemoveClass('P', 'fillLetter', 'unfillLetter');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'P');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'R');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'T');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'F');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O2');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'L');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'I');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O3');
+
+
+
+
+
+// let p = document.getElementById('P');
+// var Ppaths = p.getElementsByTagName("path");
+// console.log(paths);
+// paths[1].classList.add('fillLetter');

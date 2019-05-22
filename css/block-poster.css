@@ -274,17 +274,52 @@
         /*dismantle small shape*/
 
         /*fill letters*/
-        .block__poster__portfolio-text #P > path {
-            fill:#000;
+        .block__poster__portfolio-text path {
             fill-opacity:0;
         }
 
+        .block__poster__portfolio-text #P > path {
+            fill: #2A2D34;
+        }
+
+        .block__poster__portfolio-text #O > path {
+            fill: #61601E;
+        }
+
+        .block__poster__portfolio-text #R > path {
+            fill: #943027;
+        }
+
+        .block__poster__portfolio-text #T > path {
+            fill: #9C7022;
+        }
+
+        .block__poster__portfolio-text #F > path {
+            fill: #3F2925;
+        }
+
+        .block__poster__portfolio-text #O2 > path {
+            fill: #A23F3C;
+        }
+
+        .block__poster__portfolio-text #L > path {
+            fill: #8D8B7D;
+        }
+
+        .block__poster__portfolio-text #I > path {
+            fill: #504C28;
+        }
+
+        .block__poster__portfolio-text #O3 > path {
+            fill: #33271F;
+        }
+
         .fillLetter {
-            animation: fillLetters 5s ease-in-out;
+            animation: fillLetters 5s ease-in-out forwards;
         }
 
         .unfillLetter {
-            animation: unfillLetters 5s ease-in-out;
+            animation: unfillLetters 5s ease-in-out forwards;
         }
 
         @keyframes fillLetters{
