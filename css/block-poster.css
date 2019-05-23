@@ -1,7 +1,6 @@
-/*IMPORTANT TO CHECK:
--I think css grid can be removed by now
--delay on wing animation. See comment in the specific element
--go through code at the end*/
+/*Notes:
+-css grid is not necessary
+-delay on wing animation. See comment in the specific element*/
 
 /*main appearance & positioning*/
 .block__poster__big-shape, .block__poster__portfolio-text {
