@@ -57,6 +57,22 @@
 /*main appearance & positioning*/
 
 /*animations*/
+    /*intro*/
+    /*.block__poster__big-shape {*/
+    /*    animation: bigShapeIntro 1s infinite;*/
+    /*}*/
+
+    @keyframes Intro {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+    /*intro*/
+
     /*flying with wings*/
         /*big shape*/
             #big_shape > #right_middle_wing {
@@ -88,7 +104,7 @@
             }
 
             .block__poster__big-shape {
-                animation: flying 5s infinite;
+                animation: flying 5s infinite, Intro 3s;
             }
 
             @keyframes flying {
@@ -128,6 +144,11 @@
 
             .block__poster__small-shape > svg {
                 animation: smallFlyingMove 2s infinite;
+            }
+
+            .block__poster__small-shape {
+                opacity: 0;
+                animation: Intro 3s 0.5s forwards;
             }
 
             @keyframes smallFlyingWingsRight {
@@ -272,7 +293,12 @@
             }
 
         /*dismantle small shape*/
-
+        /*text intro*/
+        .block__poster__portfolio-text {
+            opacity: 0;
+            animation: Intro 3s 1s forwards;
+        }
+        /*text intro*/
         /*fill letters*/
         .block__poster__portfolio-text path {
             fill-opacity:0;
@@ -315,11 +341,11 @@
         }
 
         .fillLetter {
-            animation: fillLetters 5s ease-in-out forwards;
+            animation: fillLetters 2s ease-in-out forwards;
         }
 
         .unfillLetter {
-            animation: unfillLetters 5s ease-in-out forwards;
+            animation: unfillLetters 2s ease-in-out forwards;
         }
 
         @keyframes fillLetters{

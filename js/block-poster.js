@@ -67,14 +67,12 @@ setDismantleClasses();
 
 
 /*nog kijken voor verbeteringen als er tijd is*/
-function setAndRemoveClassPath(animationClass, undoAnimationClass, letter){
+function setAndRemoveClassPath(animationClass, undoAnimationClass, letter, key){
     let clicked = false;
 
     let clickElement = document.getElementById(letter);
     let letterElement = document.getElementById(letter);
     let letterPaths = letterElement.getElementsByTagName("path");
-
-    console.log(letterPaths);
 
 
     clickElement.onclick = function() {
@@ -91,23 +89,54 @@ function setAndRemoveClassPath(animationClass, undoAnimationClass, letter){
             clicked = false;
         }
     }
+
+    document.addEventListener("keydown", event => {
+        if (event.key == key) {
+            if (clicked == false) {
+                letterPaths[1].classList.remove(undoAnimationClass);
+                letterPaths[1].classList.add(animationClass);
+
+                clicked = true;
+            }
+            else {
+                letterPaths[1].classList.remove(animationClass);
+                letterPaths[1].classList.add(undoAnimationClass);
+
+                clicked = false;
+            }
+        }
+    });
 }
 
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'P');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'R');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'T');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'F');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O2');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'L');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'I');
-setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O3');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'P', 'p');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O', 'o');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'R', 'r');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'T', 't');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'F', 'f');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O2', 'o');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'L', 'l');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'I', 'i');
+setAndRemoveClassPath('fillLetter', 'unfillLetter', 'O3', 'o');
 
 
+function pauseFlying(){
+    let clicked = false;
+    document.addEventListener("keydown", event => {
+        if (event.code == 'Space') {
+            if (clicked == false) {
+                document.getElementById('small_shape_left_bottom_wing').classList.add('smallFlyingWingsLeft');
+                document.getElementById('small_shape_right_bottom_wing').classList.add('smallFlyingWingsRight');
 
+                clicked = true;
 
+            } else {
+                document.getElementById('small_shape_left_bottom_wing').classList.remove('smallFlyingWingsLeft');
+                document.getElementById('small_shape_right_bottom_wing').classList.remove('smallFlyingWingsRight');
 
-// let p = document.getElementById('P');
-// var Ppaths = p.getElementsByTagName("path");
-// console.log(paths);
-// paths[1].classList.add('fillLetter');
+                clicked = false;
+            }
+        }
+    });
+}
+
+pauseFlying();
